@@ -1,0 +1,99 @@
+<!-- HERO SECTION (Fondo azul CSS puro, sin imagen) -->
+<header class="hero-section">
+  <div class="hero-content">
+    <h1>LA CASA MORGAN</h1>
+    <p class="hero-subtitle">Cuando una familia era más poderosa que el Banco Central</p>
+  </div>
+</header>
+
+<div class="main-container">
+
+  <!-- INTRODUCCIÓN -->
+  <section class="text-section centered-section">
+    <h2>El Poder Detrás del Trono</h2>
+    <p>
+      Durante la <strong>"Era Dorada" (Gilded Age)</strong>, la familia Morgan no solo eran banqueros; eran los árbitros de la economía estadounidense. 
+      Antes de que existiera la Reserva Federal, J.P. Morgan actuaba *de facto* como el banco central de los Estados Unidos.
+    </p>
+  </section>
+
+  <!-- IMPERIOS INDUSTRIALES -->
+  <section class="industries-section">
+    <h2 class="centered-title">Monopolios y "Morganización"</h2>
+    <p class="section-intro">Morgan reorganizaba industrias caóticas en monopolios eficientes. A este proceso se le llamó "Morganización".</p>
+    
+    <div class="industries-grid">
+      <div class="industry-card" *ngFor="let item of industries">
+        <div class="icon">{{ item.icon }}</div>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.desc }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PÁNICO DE 1907 (Diseño visual con icono grande 🏦) -->
+  <section class="history-feature">
+    <div class="feature-content">
+      <h2>El Pánico de 1907</h2>
+      <h3>El día que Morgan salvó a EE.UU.</h3>
+      <p>
+        En 1907, la Bolsa de Nueva York colapsó y los bancos empezaron a quebrar. Sin banco central, el país estaba al borde del abismo.
+      </p>
+      <p>
+        <strong>J.P. Morgan encerró a los principales banqueros en su biblioteca</strong>, cerró la puerta con llave y se negó a dejarlos salir hasta que acordaran poner millones de dólares para salvar la economía.
+      </p>
+    </div>
+    <!-- En lugar de foto, usamos un icono representativo -->
+    <div class="feature-visual">
+      <div class="big-icon">🏦</div>
+      <span>La Biblioteca Morgan</span>
+    </div>
+  </section>
+
+  <!-- TARJETAS DE PERSONAJES (Con Círculos de Iniciales) -->
+  <section class="cards-section gray-bg">
+    <h2 class="centered-title">Los Protagonistas</h2>
+    <div class="cards-grid">
+      <div class="figure-card" *ngFor="let figure of morganFigures">
+        
+        <!-- Aquí está la clave: Usamos un círculo CSS con las iniciales del TS -->
+        <div class="avatar-circle">
+          {{ figure.initials }}
+        </div>
+
+        <div class="card-content">
+          <h3>{{ figure.name }}</h3>
+          <span class="role-badge">{{ figure.role }}</span>
+          <p>{{ figure.impact }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO -->
+  <section class="info-footer-section">
+    <div class="two-column-grid">
+      <div class="links-column">
+        <h2>Bibliografía</h2>
+        <ul class="modern-list">
+          <li><a href="#">Libro: "The House of Morgan"</a></li>
+          <li><a href="#">Documental: "The Men Who Built America"</a></li>
+          <li><a href="#">Archivo Histórico del Tesoro de EE.UU.</a></li>
+        </ul>
+      </div>
+      <div class="form-column">
+        <h2>¿Preguntas?</h2>
+        <form (ngSubmit)="onSubmit()" #form="ngForm" class="modern-form">
+          <input type="text" placeholder="Nombre" required [(ngModel)]="contactForm.name" name="name">
+          <input type="email" placeholder="Email" required [(ngModel)]="contactForm.email" name="email">
+          <button type="submit" [disabled]="!form.valid">SOLICITAR PDF</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>&copy; 2025 Proyecto Académico | Historia Económica de EE.UU.</p>
+</footer>
